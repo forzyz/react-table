@@ -19,6 +19,8 @@ const Login = () => {
     },
   });
 
+  const [error, setError] = useState("");
+
   const dispatch = useDispatch<AppDispatch>();
 
   const router = useRouter();
@@ -34,6 +36,9 @@ const Login = () => {
             data.password === "testpassword123"
           ) {
             router.push("/TablePage");
+          }
+          else {
+            setError("Wrong password. Try again, please.")
           }
         })}
         className="flex items-center flex-col border border-slate-700 rounded-xl p-5"
@@ -62,7 +67,7 @@ const Login = () => {
             })}
           />
 
-          <p className="mt-1 text-red-600">{errors.password?.message}</p>
+          <p className="mt-1 text-red-600">{error ? error : errors.password?.message}</p>
         </div>
 
         <input
