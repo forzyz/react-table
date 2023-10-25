@@ -1,13 +1,8 @@
-import {
-  isEditingChange,
-  saveData,
-  saveEditedDataId,
-} from "@/redux/features/tableSlice";
+import { isEditingChange } from "@/redux/features/tableSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { User } from "@/types/DataType";
 import { ExitIcon } from "@radix-ui/react-icons";
 import axios from "axios";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
@@ -59,6 +54,7 @@ const Edit = () => {
         onSubmit={handleSubmit((data) => {
           editData(data);
           dispatch(isEditingChange(false));
+          location.reload();
         })}
         className="flex items-center flex-col border border-slate-700 rounded-xl p-5"
       >
