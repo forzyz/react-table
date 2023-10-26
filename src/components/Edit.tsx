@@ -49,7 +49,7 @@ const Edit = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   return (
-    <div className="flex items-center flex-col absolute top-12 bg-cover h-screen w-screen bg-slate-900 bg-opacity-80 -mt-12 pt-20">
+    <div className="flex items-center flex-col fixed top-12 bg-cover h-full w-screen bg-slate-900 bg-opacity-80 -mt-12 pt-20">
       <form
         onSubmit={handleSubmit((data) => {
           editData(data);
